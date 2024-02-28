@@ -187,16 +187,16 @@ class RelationalFilter:
         :param column_name: The column name to search for.
         :return: The column of the related dataframe the string is referring to.
         """
-        found_in_relation = None
-        for relation in self._relations:
-            if column_name in relation.data.columns:
-                if found_in_relation is not None:
+        relation_infos = None
+        for name, values in self.dataframe._relations.items():
+            if column_name in values["dataframe"].data.columns:
+                if relation_infos is not None:
                     raise ValueError(f"Column name '{column_name}' is ambiguous")
-                found_in_relation = relation
+                relation_infos = values
 
-        if found_in_relation is None:
+        if relation_infos is None:
             raise ValueError(f"Could not find a column with the name '{column_name}'")
-        return found_in_relation, column_name
+        return relation_infos, column_name
 
     # Step 2
     @staticmethod
