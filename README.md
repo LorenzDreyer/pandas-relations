@@ -13,7 +13,19 @@ Thanks in advance!
 
 ## Installation
 
-To be defined!
+Currently, the package is not yet available on PyPi. Therefore, you can install it directly from
+GitHub using the following command in your terminal:
+
+```bash
+pip install git+https://github.com/LorenzDreyer/pandas-relations.git
+```
+
+If you are using jupiter notebooks, you can also install the package directly from the notebook using
+the following command:
+
+```python
+!pip install git+https://github.com/LorenzDreyer/pandas-relations.git
+```
 
 ## Usage
 
@@ -94,8 +106,3 @@ print(customers.rfilter("self.age > 50"))
 
 Some behavior you should be aware of:
 - Currently, when using the `rfilter` method, the resulting dataframe is a standard pandas dataframe. The relations of the original dataframe are not copied.
-
-
-## License
-
-To be defined!
